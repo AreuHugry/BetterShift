@@ -1,7 +1,7 @@
 # BetterShift
 Classic WOW addon for linking item in chat using different language with your client
 
-<img src="https://github.com/AreuHugry/mmmmmmm/blob/ce3682b3ed1c46dc69be574632dd6708c4c7990e/tempsnip%20(3).png" width="400" />
+<img src="https://github.com/AreuHugry/mmmmmmm/blob/ce3682b3ed1c46dc69be574632dd6708c4c7990e/tempsnip%20(3).png" width="600" />
 
 
 ![](https://github.com/AreuHugry/mmmmmmm/blob/ce3682b3ed1c46dc69be574632dd6708c4c7990e/tempsnip%20(3).png | width=400)
