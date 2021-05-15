@@ -1,24 +1,28 @@
 -- Developed by Areuhungry (Mankirk)
--- Ver. 1.0.1 5/15/21
+-- Ver. 1.0.2 5/15/21
 -- main func
-local origHandleModifiedItemClick = HandleModifiedItemClick
-function HandleModifiedItemClick(self)
-    if GetMouseButtonClicked() == "LeftButton" and ChatEdit_GetActiveWindow() then
+
+-- main func
+hooksecurefunc("HandleModifiedItemClick", function(...)
+	link, button = ...
+	if GetMouseButtonClicked() == "LeftButton" and ChatEdit_GetActiveWindow() then
 		-- detected different key-combos
         if IsShiftKeyDown() then
 			-- link item in enUS
-            local itemLink = select(2, GetItemInfo(self))
+            local itemLink = select(2, GetItemInfo(link))
             local Id = itemLinkParse(itemLink)
+			local text = ChatFrame1EditBox:GetText()
+			text = text:gsub('|.+', '')
+			ChatFrame1EditBox:SetText(text)
             enUS_itemLink = itemLink:gsub('%[.-%]', '['..itemData_enUS[tonumber(Id)]..']')
             ChatEdit_InsertLink(enUS_itemLink)
         elseif IsAltKeyDown() then
 			-- link item in your game client language
-            local itemLink = select(2, GetItemInfo(self))
+            local itemLink = select(2, GetItemInfo(link))
             ChatEdit_InsertLink(itemLink)
         end
     end
-    return origHandleModifiedItemClick
-end
+end)
 
 -- parse the itemlink
 function itemLinkParse(itemLink)
