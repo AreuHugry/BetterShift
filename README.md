@@ -16,4 +16,4 @@ You can do following:
 
 ![](https://github.com/AreuHugry/mmmmmmm/blob/ce3682b3ed1c46dc69be574632dd6708c4c7990e/WeChat%20Screenshot_20210514173516.png)
 
-**Downlonad link:** [V1.0.0](https://github.com/AreuHugry/BetterShift/releases/tag/v1.0.0).
+**Downlonad link:** [V1.0.1](https://github.com/AreuHugry/BetterShift/releases/tag/v1.0.1).
