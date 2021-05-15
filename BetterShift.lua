@@ -1,5 +1,5 @@
 -- Developed by Areuhungry (Mankirk)
--- Ver. 1.0.0 5/14/21
+-- Ver. 1.0.1 5/15/21
 -- main func
 local origHandleModifiedItemClick = HandleModifiedItemClick
 function HandleModifiedItemClick(self)
@@ -28,6 +28,28 @@ function itemLinkParse(itemLink)
     return Id
 end
 
+-- Handle chat-window link 
+hooksecurefunc("ChatFrame_OnHyperlinkShow", function(...)
+    local chatFrame, link, text, button = ...
+    if (ChatEdit_GetActiveWindow() and button == "LeftButton") then
+		local linkType, questId, playerGUID = string.split(":", link)
+		if linkType == "item" then
+			local Id = itemLinkParse(link)
+			local ItemLink = select(2, GetItemInfo(Id))
+			-- if shift then link as enUS
+			if IsShiftKeyDown() and ItemLink then
+				enUS_itemLink = ItemLink:gsub('%[.-%]', '['..itemData_enUS[tonumber(Id)]..']')
+				local text = ChatFrame1EditBox:GetText()
+				text = text:gsub('|.+', '')
+				ChatFrame1EditBox:SetText(text)
+				ChatEdit_InsertLink(enUS_itemLink)
+			-- if Alt then link as your client language
+			elseif IsAltKeyDown() and ItemLink then
+				ChatEdit_InsertLink(ItemLink)
+			end
+		end
+    end
+end)
 
 -- Item look up table
 itemData_enUS = {
