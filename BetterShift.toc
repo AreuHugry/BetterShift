@@ -1,7 +1,7 @@
-## Interface: 11307
+## Interface: 20501
 ## Title: BetterShift
 ## Author: Areuhungry
 ## Notes: Shows ItemLink in English when you shift-leftclick, same with your system when alt-leftclick. Designed for my friend - Magictaod.
-## Version: 1.0.2
+## Version: 1.0.3
 
 BetterShift.lua
